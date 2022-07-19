@@ -25,6 +25,11 @@ export let Game = function(){
 
     useEffect(() => {
         getData();
+        socketWeb();
+        setTimeout(function(){
+            getInfoPlayer();
+        }, 1500);
+        
         
         
      }, []);
@@ -72,8 +77,6 @@ export let Game = function(){
     }
 
 
-
-
     async function getData(){
         sala = sessionStorage.getItem("Sala")
         //console.log(sala);
@@ -88,7 +91,7 @@ export let Game = function(){
         else{
             turn  = false;
         }
-        socketWeb();
+        
     };
 
     async function socketWeb(){
@@ -104,7 +107,7 @@ export let Game = function(){
                 //console.log(y)                
            }); 
         });
-        getInfoPlayer();
+        
     };
     
 
