@@ -24,6 +24,9 @@ export let Game = function(){
     const[result,setResult] = useState({winner:"none",state:"none"})
 
     useEffect(() => {
+        infoPlayer = ["","",""]
+        tempBoard =["","","","","","","","",""]
+        oponent = ["","",""]
         getInfoPlayer();
         getData();
         socketWeb();
@@ -49,7 +52,7 @@ export let Game = function(){
             method: 'GET'
             }).then(response => response.json());
         infoPlayer = [players.name,players.pGanadas,players.pPerdidas];
-
+        
         stompClient.subscribe('/events/ws/'+sala+player, function(x){
             oponent =  x.body.split(',')
             setPlayer(infoPlayer[0])
