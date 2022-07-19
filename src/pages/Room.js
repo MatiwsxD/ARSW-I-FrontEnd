@@ -17,7 +17,7 @@ export let Room = function(){
             navigate("/game")
           }
           else{
-            console.log("La sala esta llena")
+            alert("La sala esta llena")
           }
         window.location.reload(false);
         

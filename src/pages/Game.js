@@ -25,8 +25,8 @@ export let Game = function(){
 
     useEffect(() => {
         getData();
-        socketWeb();
-        getInfoPlayer();
+        
+        
      }, []);
 
     useEffect(()=>{
@@ -88,6 +88,7 @@ export let Game = function(){
         else{
             turn  = false;
         }
+        socketWeb();
     };
 
     async function socketWeb(){
@@ -103,6 +104,7 @@ export let Game = function(){
                 //console.log(y)                
            }); 
         });
+        getInfoPlayer();
     };
     
 
