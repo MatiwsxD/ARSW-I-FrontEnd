@@ -91,7 +91,7 @@ export let Game = function(){
     };
 
     async function socketWeb(){
-        let Sock = await new SockJS("https://peaceful-earth-72357.herokuapp.com/tictac/tictactoe")
+        let Sock = await new SockJS("https://peaceful-earth-72357.herokuapp.com/tictactoe")
         stompClient = over(Sock);
         stompClient.connect({},function(){
             stompClient.subscribe('/events/ws/'+sala, function(x){
