@@ -19,6 +19,7 @@ export let Room = function(){
           else{
             console.log("La sala esta llena")
           }
+        window.location.reload(false);
         
     }
 
