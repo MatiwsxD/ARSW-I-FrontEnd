@@ -15,11 +15,12 @@ export let Room = function(){
           if(data){
             sessionStorage.setItem("Sala",x);
             navigate("/game")
+            window.location.reload(false);
           }
           else{
             alert("La sala esta llena")
           }
-        window.location.reload(false);
+        
         
     }
 
