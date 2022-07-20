@@ -42,9 +42,24 @@ export let Game = function(){
         if(result.state !="none"){
             alert('Game Finished ' + result.winner);
             //llamar una funcion que vea si el winner conside con el player, si si hacer fetch a winner, sino hacer fetch a losser
+            turn = false;
+            if(result.winner == player){
+                putWinner("Winner")
+            }
+            else{
+                putWinner("Loser")
+            }
         }
        
     },[result])
+
+    async function putWinner(accion){
+        let correo = sessionStorage.getItem("Correo");
+        let url = "https://peaceful-earth-72357.herokuapp.com/tictac/"+accion+"/"+correo
+        let metodo = await fetch(url,{
+            method: 'POST'
+        })
+    }
 
 
     async function getInfoPlayer(){
