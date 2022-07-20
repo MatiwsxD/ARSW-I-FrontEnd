@@ -40,7 +40,14 @@ export let Game = function(){
 
     useEffect(()=>{
         if(result.state !="none"){
-            alert('Game Finished ' + result.winner);
+            let ganador = ""
+            if(player == result.winner){
+                ganador = infoPlayer[0]
+            }
+            else{
+                ganador = oponent[0]
+            }
+            alert('Juego terminado, ganador: ' + ganador);
             //llamar una funcion que vea si el winner conside con el player, si si hacer fetch a winner, sino hacer fetch a losser
             turn = false;
             if(result.winner == player){
@@ -49,14 +56,24 @@ export let Game = function(){
             else{
                 putWinner("Loser")
             }
+            resetRoom()
+
+
         }
        
     },[result])
 
-    async function putWinner(accion){
+    function resetRoom(){
+        let url = "https://peaceful-earth-72357.herokuapp.com/tictac/resetRoom/"+sala
+        await fetch(url,{
+            method: 'POST'
+        })
+
+    }
+    function putWinner(accion){
         let correo = sessionStorage.getItem("Correo");
         let url = "https://peaceful-earth-72357.herokuapp.com/tictac/"+accion+"/"+correo
-        let metodo = await fetch(url,{
+        await fetch(url,{
             method: 'POST'
         })
     }
@@ -214,15 +231,15 @@ let Player = function({jugador,win,lose}){
         <div>
             <br></br>
             <h5>
-                No esta{jugador}
+                Nick {jugador}
             </h5>
             <br></br>
             <h5>
-                Hey{win}
+                Partidas ganadas {win}
             </h5>
             <br></br>
             <h5>
-                cargando{lose}
+                Partidas perdidas{lose}
             </h5>
         </div>
     )
