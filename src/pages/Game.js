@@ -65,7 +65,7 @@ export let Game = function(){
 
     function resetRoom(){
         let url = "https://peaceful-earth-72357.herokuapp.com/tictac/resetRoom/"+sala
-        await fetch(url,{
+        fetch(url,{
             method: 'POST'
         })
 
@@ -73,7 +73,7 @@ export let Game = function(){
     function putWinner(accion){
         let correo = sessionStorage.getItem("Correo");
         let url = "https://peaceful-earth-72357.herokuapp.com/tictac/"+accion+"/"+correo
-        await fetch(url,{
+        fetch(url,{
             method: 'POST'
         })
     }
