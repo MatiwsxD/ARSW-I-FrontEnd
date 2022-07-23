@@ -36,7 +36,6 @@ export let Room = function(){
             <br/>
             </div>
             <div>
-                
                     <li> <button className='BotonSala' onClick={() => buttonClick("A")}>Sala A</button></li>
                     <li> <button className='BotonSala' onClick={() => buttonClick("B")}>Sala B</button></li>
                     <li> <button className='BotonSala' onClick={() => buttonClick("C")}>Sala C</button></li>
@@ -44,8 +43,6 @@ export let Room = function(){
                     <li> <button className='BotonSala' onClick={() => buttonClick("E")}>Sala E</button></li>
                     <li> <button className='BotonSala' onClick={() => buttonClick("F")}>Sala F</button></li>
                     <li> <button className='BotonSala' onClick={() => buttonClick("G")}>Sala G</button></li>
-                
-                
             </div>
             </center>
 

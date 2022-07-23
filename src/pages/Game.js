@@ -3,6 +3,7 @@ import { useState } from "react";
 import { over } from 'stompjs';
 import SockJS from 'sockjs-client';
 import { useEffect } from "react";
+import { hasUnreliableEmptyValue } from "@testing-library/user-event/dist/utils";
 
 var infoPlayer = ["", "", ""];
 var player = null
@@ -35,6 +36,7 @@ export let Game = function () {
     }, []);
 
     useEffect(() => {
+        checkIfTie();
         checkWin();
     }, [board])
 
@@ -217,6 +219,17 @@ export let Game = function () {
             }
         })
     }
+    const checkIfTie =() =>{
+        let filled = true;
+        board.forEach((square) =>{
+            if(square ==""){
+                filled = false
+            }
+        })
+        if (filled){
+            setResult({winner: "Ninguno", state: "Empate"});
+        }
+    };
 
     return (
         <div className="App">
