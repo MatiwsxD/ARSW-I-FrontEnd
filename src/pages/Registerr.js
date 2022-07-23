@@ -9,16 +9,19 @@ export let Registerr= function() {
     let [confirmPassword, setcPassword] = useState('');
     let navigate = useNavigate();
 
+
     let checkCampos = function(){
         if(userName === '' ||  email ==='' || password === '' || confirmPassword === ''){
             console.log('Debe llenar todos los campos') //Modificar con una alerta
         }
-        
         isRegistered();
-
-        
     }
 
+/**
+ * It checks if the user is registered, if not, it submits the form and alerts the user that the user
+ * was registered correctly, if the user is registered, it alerts the user that the user is already
+ * registered.
+ */
     let isRegistered = async()=>{
         let url = 'https://peaceful-earth-72357.herokuapp.com/tictac/checkUser/'+email
         let data = await fetch(url,{
@@ -34,6 +37,9 @@ export let Registerr= function() {
 
     }
 
+/**
+ * It takes the user's input and sends it to the server.
+ */
     let submit= async()=>{
 
         let url = 'https://peaceful-earth-72357.herokuapp.com/tictac/registry/'+userName+'/'+email+'/'+password;

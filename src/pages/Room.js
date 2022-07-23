@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import "./Room.css"
 
 export let Room = function(){
     let [room, setRoom] = useState('');
@@ -26,6 +26,7 @@ export let Room = function(){
 
     return(
         <div>
+            <center>
             <div>
             <label htmlFor="text_Sala">Digite aqui el nombre de la sala a la cual desea entrar</label>
             <br/>
@@ -35,17 +36,18 @@ export let Room = function(){
             <br/>
             </div>
             <div>
-                <ul>
-                    <li> <button className='BotonSalaA' onClick={() => buttonClick("A")}>Sala A</button></li>
-                    <li> <button className='BotonSalaB' onClick={() => buttonClick("B")}>Sala B</button></li>
-                    <li> <button className='BotonSalaC' onClick={() => buttonClick("C")}>Sala C</button></li>
-                    <li> <button className='BotonSalaD' onClick={() => buttonClick("D")}>Sala D</button></li>
-                    <li> <button className='BotonSalaE' onClick={() => buttonClick("E")}>Sala E</button></li>
-                    <li> <button className='BotonSalaF' onClick={() => buttonClick("F")}>Sala F</button></li>
-                    <li> <button className='BotonSalaG' onClick={() => buttonClick("G")}>Sala G</button></li>
-                </ul>
+                
+                    <li> <button className='BotonSala' onClick={() => buttonClick("A")}>Sala A</button></li>
+                    <li> <button className='BotonSala' onClick={() => buttonClick("B")}>Sala B</button></li>
+                    <li> <button className='BotonSala' onClick={() => buttonClick("C")}>Sala C</button></li>
+                    <li> <button className='BotonSala' onClick={() => buttonClick("D")}>Sala D</button></li>
+                    <li> <button className='BotonSala' onClick={() => buttonClick("E")}>Sala E</button></li>
+                    <li> <button className='BotonSala' onClick={() => buttonClick("F")}>Sala F</button></li>
+                    <li> <button className='BotonSala' onClick={() => buttonClick("G")}>Sala G</button></li>
+                
                 
             </div>
+            </center>
 
         </div>
 
