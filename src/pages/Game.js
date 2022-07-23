@@ -46,8 +46,11 @@ export let Game = function () {
             if (player == result.winner) {
                 ganador = infoPlayer[0]
             }
-            else {
+            else if(oponent[0] == result.winner) {
                 ganador = oponent[0]
+            }
+            else{
+                ganador = 'Nunguno'
             }
             alert('Juego terminado, ganador: ' + ganador);
             //llamar una funcion que vea si el winner conside con el player, si si hacer fetch a winner, sino hacer fetch a losser
